@@ -6,24 +6,30 @@
     box-sizing: border-box;
 }
 
+
+
 main{
   display: flex;
   height: 100vh;
 }
 
-#player{
+footer {
+  margin-top: 50px ;
+  text-align: center;
+}
+
+#container-player{
     flex:0.2;
   
 }
 
-#monster{
-  flex: 0.5;
-  background:purple;
+#container-player h2{
+  margin: 10px;
 }
 
-
-progress {
-   height: 5vh;
+#container-monster{
+  flex: 0.5;
+  background:purple;
 }
 
 #commands button {
@@ -36,9 +42,6 @@ progress {
   cursor: pointer;
 }
 
-h2{
-  margin: 10px;
-}
 
 #logs{
   flex: 0.3;
@@ -63,5 +66,9 @@ h2{
 
 .group strong{
   margin-left: 5px;
+}
+
+progress {
+  height: 5vh;
 }
 

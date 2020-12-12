@@ -9,35 +9,34 @@
 <body>
     <div id="app">
         <main>
-            <div id="player">
+            <div id="container-player">
                 <img src="./assets/player.png" alt="Jogador" >
                 <div class="group">
-                    <progress id="life-player" value="32" max="100"> 32% </progress>
-                    <strong>32%</strong>
+                    <progress id="life-player" :value="player.life" max="100"> 32% </progress>
+                    <strong>{{player.life}}</strong>
                 </div>
-                <h2>Comandos</h2>
-                <div id="commands">
-                    <button>Ataque</button>
-                    <button>Ataque Especial</button>
-                    <button>Curar</button>
-                    <button>Desistir</button>
+                <h2  v-if="result==''">Comandos</h2>
+                <h2  v-else>Resultado</h2>
+                <div v-if="result==''" id="commands">
+                    <button @click="attack">Ataque</button>
+                    <button @click="specialAttack">Ataque Especial</button>
+                    <button @click="heal">Curar</button>
+                    <button @click="restart">Desistir</button>
                 </div>
+                <footer>
+                    <p>{{result}}</p>
+                </footer>
             </div>
-            <div id="monster">
+            <div id="container-monster">
                 <img src="./assets/monster.png" alt="Monstro">
                 <div class="group">
-                    <progress id="life-monster" value="60" max="100"> 60% </progress>
-                    <strong>60%</strong>
+                    <progress id="life-monster" :value="monster.life" max="100"> 60% </progress>
+                    <strong>{{monster.life}}</strong>
                 </div>
             </div>
             <div id=logs>
-                <div class="log">
-                    <p><strong>Monstro</strong> atingiu <strong>Jogador</strong> com 9 pontos</p>
-                    <p><strong>Jogador</strong> atingiu <strong>Monstro</strong> com 8 pontos</p>
-                </div>
-                <div class="log">
-                    <p><strong>Monstro</strong> atingiu <strong>Jogador</strong> com 10pontos</p>
-                    <p><strong>Jogador</strong> atingiu <strong>Monstro</strong> com 9 pontos</p>
+                <div class="log" v-for="logFormatted in logsFormatted" v-if="hasLogs">
+                    <p >{{logFormatted}}</p>
                 </div>
             </div>    
             
