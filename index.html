@@ -3,11 +3,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+     <script src="https://unpkg.com/vue"></script>
     <title>Matador de Monstros</title>
 </head>
 <body>
     <div id="app">
-        
+        <main>
+            <div id="player">
+                <img src="./assets/player.png" alt="Jogador" >
+                <div class="group">
+                    <progress id="life-player" value="32" max="100"> 32% </progress>
+                    <strong>32%</strong>
+                </div>
+                <h2>Comandos</h2>
+                <div id="commands">
+                    <button>Ataque</button>
+                    <button>Ataque Especial</button>
+                    <button>Curar</button>
+                    <button>Desistir</button>
+                </div>
+            </div>
+            <div id="monster">
+                <img src="./assets/monster.png" alt="Monstro">
+                <div class="group">
+                    <progress id="life-monster" value="60" max="100"> 60% </progress>
+                    <strong>60%</strong>
+                </div>
+            </div>
+            <div id=logs>
+                <div class="log">
+                    <p><strong>Monstro</strong> atingiu <strong>Jogador</strong> com 9 pontos</p>
+                    <p><strong>Jogador</strong> atingiu <strong>Monstro</strong> com 8 pontos</p>
+                </div>
+                <div class="log">
+                    <p><strong>Monstro</strong> atingiu <strong>Jogador</strong> com 10pontos</p>
+                    <p><strong>Jogador</strong> atingiu <strong>Monstro</strong> com 9 pontos</p>
+                </div>
+            </div>    
+            
+        </main>
     </div>
     <script src="app.js"></script>
 </body>

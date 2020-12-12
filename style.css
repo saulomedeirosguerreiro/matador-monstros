@@ -1,0 +1,67 @@
+#app{
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+main{
+  display: flex;
+  height: 100vh;
+}
+
+#player{
+    flex:0.2;
+  
+}
+
+#monster{
+  flex: 0.5;
+  background:purple;
+}
+
+
+progress {
+   height: 5vh;
+}
+
+#commands button {
+  display:block;
+  width: 20vw;
+  background: lightgray;
+  border-radius: 0.875rem;
+  padding:10px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+h2{
+  margin: 10px;
+}
+
+#logs{
+  flex: 0.3;
+  background:purple;
+  overflow: auto;
+}
+
+.log{
+  border: 5px solid #B19CD9;
+  border-radius: 0.875rem;
+  margin:10px;
+  padding:2px;
+  text-align: center;
+  background: white;
+}
+
+.group{
+  display:flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.group strong{
+  margin-left: 5px;
+}
+
