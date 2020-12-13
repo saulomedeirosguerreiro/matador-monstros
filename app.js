@@ -80,16 +80,8 @@ new Vue({
            this.logs.push(monsterAction);
 
            this.player.sufferDamage(monsterAction.damage)
-           if(this.player.life === 0){
-               this.result = 'Jogador perdeu';
-               setTimeout(() => this.restart(),5000);
-           }
-           
            this.monster.sufferDamage(playerAction.damage) 
-           if(this.monster.life === 0){
-               this.result = 'Jogador venceu'; 
-               setTimeout(() => this.restart(),5000);
-           }
+           
            
      
         },
@@ -99,17 +91,9 @@ new Vue({
             const monsterAction = this.monster.attack( 'Krack','Nico', 20);
             this.logs.push(monsterAction);
 
-            this.player.sufferDamage(monsterAction.damage)
-            if(this.player.life === 0){
-                this.result = 'Jogador perdeu';
-                setTimeout(() => this.restart(),5000);
-            }
-            
+            this.player.sufferDamage(monsterAction.damage)    
             this.monster.sufferDamage(playerAction.damage) 
-            if(this.monster.life === 0){
-                this.result = 'Jogador venceu'; 
-                setTimeout(() => this.restart(),5000);
-            }
+        
         },
         heal(){
             const playerAction = this.player.heal('Ninja Nico');
@@ -151,19 +135,24 @@ new Vue({
                this.logs.splice(0,8);
            }
         },
-        /*player(){
-            console.log('playter monitando...')
-            if(this.player.life === 0){
-                this.result = 'Jogador perdeu';
-                setTimeout(() => this.restart(),5000);
+        player:{
+            deep:true,
+            handler(){
+                if(this.player.life === 0){
+                    this.result = 'Jogador perdeu';
+                    setTimeout(() => this.restart(),5000);
+                }
             }
         },
-        monster(){
-             if(this.monster.life === 0){
-               this.result = 'Jogador venceu'; 
-               setTimeout(() => this.restart(),5000);
-           }
-        }*/
+        monster:{
+             deep:true,
+             handler(){
+                if(this.monster.life === 0){
+                    this.result = 'Jogador venceu'; 
+                    setTimeout(() => this.restart(),5000);
+                }
+             }
+        }
     }
 
 })
